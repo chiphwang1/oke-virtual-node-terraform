@@ -13,24 +13,20 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
 - [Terraform Installed](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 
-## Installation of Helm chart
+## Installation of Terraform stack
 
 **1. Clone or download the contents of this repo** 
      
-     git clone https://github.com/oracle-devrel/helm-oci-mysql.git
+     git clone https://github.com/chiphwang1/oke-virtual-node-terraform.git
 
-**2. Change to the directory that holds the Helm Chart** 
+**2. Change to the directory that holds the Terraform stack** 
 
-      cd ./helm-oci-mysql
+      cd ./oke-virtual-node-terraform
 
-**3. Populate the values.yaml file with information to deploy the MDS resource**
+**3. Populate the varaibles.tf file**
 
 
-**4. Create the namespace where the MDS resource will be deployed**
-
-     kubectl create ns <namespace name>
-
-**5. Install the Helm chart. Best practice is to assign the username and password during the installation of the Helm chart instead of adding it to the values.yam file.**
+**4. Install the Helm chart. Best practice is to assign the username and password during the installation of the Helm chart instead of adding it to the values.yam file.**
 
      helm -n <namespace name> install \
      --set database.username=<database password> \  
@@ -59,27 +55,11 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
 
 | Variables                          | Description                                                         | Type   | Mandatory |
 | ---------------------------------- | ------------------------------------------------------------------- | ------ | --------- |
-| `compartment_id` | Compartment to deoloy OKE Virual Nodes cluster | string | yes  |
+| `compartment_id` | Compartment to deploy OKE Virtual Nodes cluster | string | yes  |
 | `region` | region to deploy the OKE Virtual Nodes Cluster  | string | yes     |
 | `node_shape` | The shape of Virtual Nodes | string | yes       |
 | `node_size` | The name of Virtual Nodes in the node pool  | number | yes       |
-| `create_oke_virtual_node_policy` | To create the policy for for Virtual Node operations or not  | bool | yes       |
-| `spec.dataStorageSizeInGBs`| Initial size of the data volume in GBs that will be created and attached. Keep in mind that this only specifies the size of the database data volume, the log volume for the database will be scaled appropriately with its shape. | int    | yes       |
-| `spec.isHighlyAvailable` | Specifies if the DB System is highly available.  | boolean | yes       |
-| `spec.availabilityDomain`| The availability domain on which to deploy the Read/Write endpoint. This defines the preferred primary instance. | string | yes        |
-| `spec.faultDomain`| The fault domain on which to deploy the Read/Write endpoint. This defines the preferred primary instance. | string | no        |
-| `spec.configuration.id` | The OCID of the Configuration to be used for this DB System. [More info about Configurations](https://docs.oracle.com/en-us/iaas/mysql-database/doc/db-systems.html#GUID-E2A83218-9700-4A49-B55D-987867D81871)| string | yes |
-| `spec.description` | User-provided data about the DB System. | string | no |
-| `spec.hostnameLabel` | The hostname for the primary endpoint of the DB System. Used for DNS. | string | no |
-| `spec.mysqlVersion` | The specific MySQL version identifier. | string | no |
-| `spec.port` | The port for primary endpoint of the DB System to listen on. | int | no |
-| `spec.portX` | The TCP network port on which X Plugin listens for connections. This is the X Plugin equivalent of port. | int | no |
-| `spec.ipAddress` | The IP address the DB System is configured to listen on. A private IP address of your choice to assign to the primary endpoint of the DB System. Must be an available IP address within the subnet's CIDR. If you don't specify a value, Oracle automatically assigns a private IP address from the subnet. This should be a "dotted-quad" style IPv4 address. | string | no |
-| `database.username` | The admin username for the administrative user for the MuSQL DB Systesm. This should be assigned during the deployment of the Helm chart and not kept in the values.yaml file| string | yes       |
-| `database.password` | The admin password for Mysql DB System. The password must be between 8 and 32 characters long, and must contain at least 1 numeric character, 1 lowercase character, 1 uppercase character, and 1 special (nonalphanumeric) character. | string | yes       |
-| `autoDB.enabled` | set to true to automatically create a database in the Mysql DB System. Leave this field empty otherwise. | string | no       |
-| `DBName` | if autoDB.enabled is set to true, name the database in this field. | string | no       |
-
+| `create_oke_virtual_node_policy` | To create the policy for for Virtual Node operations. Set to "true" to create the policy | bool | yes       |
 
 
 ## Useful commands 
