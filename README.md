@@ -26,7 +26,7 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
 **3. Populate the varaibles.tf file**
 
 
-**4. Install the Helm chart. Best practice is to assign the username and password during the installation of the Helm chart instead of adding it to the values.yam file.**
+**4. Install the Terraform stack**
 
      terraform init
      terraform plan
