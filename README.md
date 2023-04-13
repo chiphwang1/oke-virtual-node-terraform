@@ -44,7 +44,7 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
      terraform destroy
      
  
-## MySQL DB System value.yaml Specification
+##  variables.tf Specification
 
 
 | Variables                          | Description                                                         | Type   | Mandatory |
@@ -59,29 +59,11 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
 ## Useful commands 
 
 
-**1. To check the status of the MySQL DB System run the following command**
+**1. To check Virtual Nodes**
      
-     kubectl -n <namespace of mysqldbsystem> get mysqldbsystems -o wide
+     kubectl get nodes -o wide
 
-**2. To describe the MySQL DB System run the following command** 
-     
-     kubectl -n <namespace of mysqldbsystem> describe mysqldbsystems <name of mysqldbsystem>
 
-**3. To retreive the OCID of MySQL DB System run the following command** 
-
-      kubectl -n <namespace of mysqldbsystem> get mysqldbsystems <name of mysqldbsystem> -o jsonpath="{.items[0].status.status.ocid}"
- 
-**4. To retrive the admin username of the MySQL DB System run the following command**
-     
-     kubectl -n  <namespace of mysqldbsystem>  get secret mysqlsecret -o  jsonpath="{.data.username}" | base64 --decode
-
-**5. To retrive the admin password of the MySQL DB System run the following command**
-     
-     kubectl -n  <namespace of mysqldbsystem>  get secret mysqlsecret -o  jsonpath="{.data.password}" | base64 --decode
-
-**6. To retreive endpoint information for the MySQL DB System run the following command**
-     
-     kubectl -n <namespace of mysqldbsystem> get secret <name of the MySQL DB System>  -o jsonpath='{.data.Endpoints}' | base64 --decode
 
 
 
