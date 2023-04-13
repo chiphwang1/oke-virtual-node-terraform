@@ -49,7 +49,7 @@ This Terraform stack facilitates the deployment of an Oracle Container Engine fo
      terraform destroy
      
  
-##  variables.tf Specification
+##  variables.tf specification
 
 
 | Variables                          | Description                                                         | Type   | Mandatory |
