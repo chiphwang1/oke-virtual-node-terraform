@@ -38,6 +38,7 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
      
  run oci command in output of terraform apply
 
+##  Sample Output 
 ![title](kubeconfig.png)
      
 
