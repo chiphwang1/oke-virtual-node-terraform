@@ -35,9 +35,11 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
 
 **5. Add Kubeconfig of Virtual Node cluster**
 
-     run oci command in output of terraform apply
+     
+ run oci command in output of terraform apply
 
-     ![My Image](kubeconfig.png)
+![title](kubeconfig.png)
+     
 
 **7. To remove Terraform stack**
 
