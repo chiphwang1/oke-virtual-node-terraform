@@ -9,7 +9,7 @@ This Terraform stack facilitates the deployment of an Oracle Container Engine fo
 ## Pre-requisites
 
 - [OCI CLI installed with the required credentials to deploy OKE in your tenancy](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
-- [kubectl installed and using the context for the Kubernetes cluster where the MDS resource will be deployed](https://kubernetes.io/docs/tasks/tools/)
+- [kubectl installed](https://kubernetes.io/docs/tasks/tools/)
 - [Terraform Installed](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 
