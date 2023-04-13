@@ -3,6 +3,16 @@ provider "oci" {
 }
 
 
+# get service ocid for region
+data "oci_core_services" "all_oci_services" {
+  filter {
+    name   = "name"
+    values = ["All .* Services In Oracle Services Network"]
+    regex  = true
+  }
+}
+
+
 # get the availability domains for the region
 data "oci_identity_availability_domains" "ad" {
   compartment_id =  var.compartment_id
@@ -48,7 +58,7 @@ resource "oci_core_service_gateway" "generated_oci_core_service_gateway" {
 	compartment_id = var.compartment_id
 	display_name = "oke-sgw-quick-demo-cluster-cb5ccc201"
 	services {
-		service_id = "ocid1.service.oc1.iad.aaaaaaaam4zfmy2rjue6fmglumm3czgisxzrnvrwqeodtztg7hwa272mlfna"
+		service_id = lookup(data.oci_core_services.all_oci_services.services[0], "id")
 	}
 	vcn_id = "${oci_core_vcn.generated_oci_core_vcn.id}"
 }
