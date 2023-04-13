@@ -1,4 +1,4 @@
-# OCI-OKE-Virual-Nodes-Terraform
+# oke-virual-node-terraform
 
 
 ## Introduction
