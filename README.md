@@ -57,7 +57,7 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
 | `compartment_id` | Compartment to deploy OKE Virtual Nodes cluster | string | yes  |
 | `region` | region to deploy the OKE Virtual Nodes Cluster  | string | yes     |
 | `node_shape` | The shape of Virtual Nodes | string | yes       |
-| `node_size` | The name of Virtual Nodes in the node pool  | number | yes       |
+| `node_size` | The number of Virtual Nodes in the node pool  | number | yes       |
 | `create_oke_virtual_node_policy` | To create the policy for for Virtual Node operations. Set to "true" to create the policy | bool | yes       |
 
 
