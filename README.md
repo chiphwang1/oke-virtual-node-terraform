@@ -28,24 +28,20 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
 
 **4. Install the Helm chart. Best practice is to assign the username and password during the installation of the Helm chart instead of adding it to the values.yam file.**
 
-     helm -n <namespace name> install \
-     --set database.username=<database password> \  
-     --set database.password=<database password> \
-       <name for this install> .
+     terraform init
+     terraform plan
+     teraffrom apply
   
-  **Example:**
-  helm -n mysqldb --set database.username=admin  --set database.password=Admin12345 ocimds .
-  
- The password must be between 8 and 32 characters long, and must contain at least 1 numeric character, 1 lowercase character, 1 uppercase character, and 1   special (nonalphanumeric) character.
 
+**5. Add Kubeconfig of Virtual Node cluster**
 
-**6. List the Helm installation**
+     run oci command in output of terraform apply
+      
+     ![My Image](./kubeconfig.png)
 
-     helm  -n <namespace name> ls
+**7. To remove Terraform stack**
 
-**7. To uninstall the Helm chart**
-
-     helm uninstall -n <namespace name> <name of the install> .
+     terraform destroy
      
   **Note:**
  uninstalling the helm chart will only remove the mysqldbsystem resource from the cluster and not from OCI. You will need to use the console or the OCI cli to remove the MDS from OCI. This is to prevent accidental deletion of the database.
