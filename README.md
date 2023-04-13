@@ -62,15 +62,13 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
 ## Useful commands 
 
 
-**1. To check Virtual Nodes**
+**1. Check Virtual Nodes status**
      
      kubectl get nodes -o wide
 
 
 
-
-
 ## Additional Resources
 
-- [OCI Service Operator for Kuberntes (OSOK) deployed in the cluster](https://github.com/oracle/oci-service-operator)
-- [MySQL SB System Service](https://www.oracle.com/mysql/)
+- [OKE Virtual Nodes deliver a serverless Kubernetes experience](https://blogs.oracle.com/cloud-infrastructure/post/oke-virtual-nodes-deliver-serverless-experience)
+- [Oracle Container Engine for Kubernetes(OKE)](https://www.oracle.com/cloud/cloud-native/container-engine-kubernetes/#:~:text=Oracle%20Cloud%20Infrastructure%20Container%20Engine,complexities%20of%20the%20Kubernetes%20infrastructure.)
