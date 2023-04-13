@@ -38,9 +38,11 @@ The Terraform stack named OCI-OKE-Virtual-Nodes facilitates the deployment of an
      
  run oci command in output of terraform apply
 
-##  Sample Output 
+###  Sample Output 
 ![title](kubeconfig1.png)
-     
+
+###  Sample command
+ oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.aaaaaaaas3qhb3xf7figx7fuvr2v6ubon2zwyomqhx7buwnwjccsz2w46esq --file $HOME/.kube/config --region us-ashburn-1 --token-version 2.0.0  --kube-endpoint PUBLIC_ENDPOINT    
 
 **7. To remove Terraform stack**
 
