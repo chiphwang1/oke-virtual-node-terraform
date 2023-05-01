@@ -4,7 +4,7 @@
 ## Introduction
 
 
-This Terraform stack facilitates the deployment of an Oracle Container Engine for Kubernetes (OKE) Virtual Nodes cluster in your tenancy. This stack will automatically provision the necessary network infrastructure components such as Virtual Cloud Network (VCN), subnets, Internet Gateway, NAT Gateway, and security rules. Additionally, you can deploy the relevant policies in the root compartment of your tenancy to enable operations of OKE Virtual Nodes.
+This Terraform stack facilitates the deployment of an Oracle Container Engine for Kubernetes (OKE) Virtual Nodes cluster in your tenancy. This stack will automatically provision the necessary network infrastructure components such as Virtual Cloud Network (VCN), subnets, Internet Gateway, NAT Gateway, and security rules. Additionally, you can deploy the relevant policies in the root compartment of your tenancy to enable operations of OKE Virtual Nodes and also includes the option to deploy a metrics server to the cluster.
 
 ## Pre-requisites
 
@@ -13,15 +13,17 @@ This Terraform stack facilitates the deployment of an Oracle Container Engine fo
 - [Terraform Installed](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 
+Click [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/chiphwang1/oke-virtualnodes/archive/refs/tags/v1.zip)
+
 ## Installation of Terraform stack
 
 **1. Clone or download the contents of this repo** 
      
-     git clone https://github.com/chiphwang1/oke-virtual-node-terraform.git
+     git clone https://github.com/chiphwang1/oke-virtualnodes.git
 
 **2. Change to the directory that holds the Terraform stack** 
 
-      cd ./oke-virtual-node-terraform
+      cd ./oke-virtualnodes
 
 **3. Populate the varaibles.tf file**
 
@@ -59,7 +61,8 @@ This Terraform stack facilitates the deployment of an Oracle Container Engine fo
 | `node_shape` | The shape of Virtual Nodes | string | yes       |
 | `node_size` | The number of Virtual Nodes in the node pool  | number | yes       |
 | `create_oke_virtual_node_policy` | To create the policy for for Virtual Node operations. Set to "true" to create the policy | bool | yes       |
-| `root_compartment_id` | Root compartment to deploy OKE Virtual Nodes policy | string | no  |
+| `root_compartment_id` | Root compartment to deploy OKE Virtual Nodes policy | string | yes if  `create_oke_virtual_node_policy` is set to true |
+| `create_metrics_server` | install metrics server. Set to "true" to create the policy | string | yes  |
 
 ## Useful commands 
 
